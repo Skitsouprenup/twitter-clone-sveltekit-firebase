@@ -1,4 +1,4 @@
-# ninja_game_pygame-ce
+# twitter-clone-sveltekit-firebase
 Simple twitter clone with limited pages and functionalities.
 
 I have a demo video of this project in this [link](https://youtu.be/XyAFo38ckJ8)
