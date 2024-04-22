@@ -1,38 +1,27 @@
-# create-svelte
+# ninja_game_pygame-ce
+Simple twitter clone with limited pages and functionalities.
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+I have a demo video of this project in this [link](https://youtu.be/XyAFo38ckJ8)
 
-## Creating a project
+# Technologies Used
+* **Sveltekit**
+* **TailwindCSS**
+* **Firebase**
+* **Shadcn-svelte**
+* **Typescript**
 
-If you're seeing this, you've probably already done this step. Congrats!
+# Environment Variables
+If you want to test out this project you need to create a new firebase project, generate a new private key. Once you created a key, a json file will be downloaded, open the file, look for these keys and copy their values:
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+**FIREBASE_PROJECT_ID** -> look for 'project_id' in the json file.  
+**FIREBASE_CLIENT_EMAIL** -> look for 'client_email' in the json file.  
+**FIREBASE_PRIVATE_KEY** -> look for 'private_key' in the json file.
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+## Firebase Config
+Create a file in 'src/lib/scripts/' directory and name it 'firebaseconf.ts'. Next, go to your project, click the cog next to the 'Project Overview' label and click the 'project settings'. Then, go bottom and look for 'your apps' section, look for your app and look for a code snippet with 'firebaseConfig' variable, copy the whole snippet and paste it to 'firebaseconf.ts' file.
 
-## Developing
+## Notes
+Due to the length of firebase's private key, you may encounter this error: 'FirebaseAppError: failed to parse private key: error: invalid pem formatted message'. To fix this, try to wrap your 'FIREBASE_PRIVATE_KEY' in single qoutes. If it doesn't work, make the key as an object. For example: `'{"key": -----BEGIN PRIVATE KEY-----\...}'`
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+And then, if you want to access your private key, use `JSON.parse()`. Example:  
+`JSON.parse(FIREBASE_PRIVATE_KEY).key`
